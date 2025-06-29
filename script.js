@@ -1,41 +1,47 @@
- // Système de curseur avancé
- const cursor = document.querySelector('.cursor');
- const cursorTrail = document.querySelector('.cursor-trail');
- let mouseX = 0, mouseY = 0;
- let trailX = 0, trailY = 0;
+ // Détection des appareils mobiles
+ const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+ const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
- document.addEventListener('mousemove', (e) => {
-     mouseX = e.clientX;
-     mouseY = e.clientY;
- });
+ // Système de curseur avancé (désactivé sur mobile)
+ if (!isMobile && !isTouchDevice) {
+     const cursor = document.querySelector('.cursor');
+     const cursorTrail = document.querySelector('.cursor-trail');
+     let mouseX = 0, mouseY = 0;
+     let trailX = 0, trailY = 0;
 
- function animateCursor() {
-     cursor.style.left = mouseX + 'px';
-     cursor.style.top = mouseY + 'px';
-     
-     trailX += (mouseX - trailX) * 0.1;
-     trailY += (mouseY - trailY) * 0.1;
-     
-     cursorTrail.style.left = trailX + 'px';
-     cursorTrail.style.top = trailY + 'px';
-     
-     requestAnimationFrame(animateCursor);
+     document.addEventListener('mousemove', (e) => {
+         mouseX = e.clientX;
+         mouseY = e.clientY;
+     });
+
+     function animateCursor() {
+         cursor.style.left = mouseX + 'px';
+         cursor.style.top = mouseY + 'px';
+         
+         trailX += (mouseX - trailX) * 0.1;
+         trailY += (mouseY - trailY) * 0.1;
+         
+         cursorTrail.style.left = trailX + 'px';
+         cursorTrail.style.top = trailY + 'px';
+         
+         requestAnimationFrame(animateCursor);
+     }
+     animateCursor();
+
+     // Effets hover avancés
+     const interactives = document.querySelectorAll('a, button, .menu-card');
+     interactives.forEach(el => {
+         el.addEventListener('mouseenter', () => {
+             cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+             cursor.style.opacity = '0.8';
+         });
+         
+         el.addEventListener('mouseleave', () => {
+             cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+             cursor.style.opacity = '1';
+         });
+     });
  }
- animateCursor();
-
- // Effets hover avancés
- const interactives = document.querySelectorAll('a, button, .menu-card');
- interactives.forEach(el => {
-     el.addEventListener('mouseenter', () => {
-         cursor.style.transform = 'translate(-50%, -50%) scale(2)';
-         cursor.style.opacity = '0.8';
-     });
-     
-     el.addEventListener('mouseleave', () => {
-         cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-         cursor.style.opacity = '1';
-     });
- });
 
  // Générateur d'éléments flottants
  function createFloatingElements() {
