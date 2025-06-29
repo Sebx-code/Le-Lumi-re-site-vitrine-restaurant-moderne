@@ -610,36 +610,519 @@ nav:hover {
     }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    nav {
-        top: 1rem;
-        padding: 0.8rem 2rem;
-    }
+/* Responsive Design - Mobile First Approach */
 
+/* Tablettes et petits écrans (jusqu'à 1024px) */
+@media (max-width: 1024px) {
     .nav-container {
+        gap: 2rem;
+    }
+    
+    .nav-links {
         gap: 1.5rem;
     }
-
-    .nav-links {
-        gap: 1rem;
+    
+    .nav-links a {
+        font-size: 0.85rem;
     }
+    
+    .hero-content {
+        padding: 0 2rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(4rem, 10vw, 14rem);
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(1rem, 2.5vw, 2rem);
+        margin-bottom: 3rem;
+    }
+    
+    .about-grid {
+        gap: 4rem;
+    }
+    
+    .about-text {
+        font-size: 1.2rem;
+    }
+    
+    .about-visual {
+        height: 500px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .menu-card {
+        padding: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: clamp(2.5rem, 5vw, 6rem);
+        margin-bottom: 5rem;
+    }
+    
+    .contact-container {
+        padding: 3rem;
+        margin: 0 2rem;
+    }
+    
+    .contact-info {
+        font-size: 1.2rem;
+        line-height: 2.2;
+    }
+}
 
+/* Tablettes verticales (jusqu'à 768px) */
+@media (max-width: 768px) {
+    /* Navigation adaptée */
+    nav {
+        top: 1.5rem;
+        left: 2rem;
+        right: 2rem;
+        transform: none;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+    }
+    
+    .nav-container {
+        gap: 1.5rem;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+    
+    .nav-links {
+        gap: 1.2rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Hero responsive */
+    .hero {
+        padding: 0 1rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(3rem, 8vw, 10rem);
+        letter-spacing: 0.1em;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(0.9rem, 2vw, 1.5rem);
+        letter-spacing: 0.2em;
+        margin-bottom: 3rem;
+    }
+    
     .hero-cta {
         flex-direction: column;
         align-items: center;
+        gap: 1.5rem;
     }
-
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 1rem 2.5rem;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    /* Sections responsives */
+    .section-modern {
+        padding: 6rem 1.5rem;
+    }
+    
+    .section-title {
+        font-size: clamp(2rem, 4vw, 4rem);
+        margin-bottom: 4rem;
+    }
+    
+    /* About section */
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 3rem;
     }
-
-    .section-modern {
-        padding: 6rem 1rem;
+    
+    .about-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
     }
-
+    
+    .about-visual {
+        height: 400px;
+        border-radius: 15px;
+    }
+    
+    .about-visual::after {
+        font-size: 6rem;
+    }
+    
+    /* Menu responsive */
     .menu-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .menu-card {
+        padding: 2rem;
+        border-radius: 15px;
+    }
+    
+    .menu-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .menu-card p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .menu-price {
+        font-size: 1.8rem;
+    }
+    
+    /* Contact responsive */
+    .contact-container {
+        padding: 2.5rem 2rem;
+        margin: 0 1rem;
+        border-radius: 20px;
+    }
+    
+    .contact-info {
+        font-size: 1.1rem;
+        line-height: 2;
+    }
+    
+    /* Curseur désactivé sur mobile */
+    .cursor,
+    .cursor-trail {
+        display: none;
+    }
+    
+    /* Réajustement des effets flottants */
+    .floating-element {
+        width: 3px;
+        height: 3px;
+    }
+}
+
+/* Mobiles (jusqu'à 480px) */
+@media (max-width: 480px) {
+    /* Navigation ultra-compacte */
+    nav {
+        top: 1rem;
+        left: 1rem;
+        right: 1rem;
+        padding: 0.8rem 1.5rem;
+        border-radius: 20px;
+    }
+    
+    .nav-container {
+        gap: 1rem;
+    }
+    
+    .logo {
+        font-size: 1.1rem;
+    }
+    
+    .nav-links {
+        gap: 0.8rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    /* Hero ultra-responsive */
+    .hero {
+        padding: 0 0.5rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.5rem, 12vw, 6rem);
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+        line-height: 0.9;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(0.8rem, 3vw, 1.2rem);
+        letter-spacing: 0.15em;
+        margin-bottom: 2.5rem;
+    }
+    
+    .hero-cta {
+        gap: 1rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.9rem 2rem;
+        font-size: 0.8rem;
+        border-radius: 25px;
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    /* Sections ultra-compactes */
+    .section-modern {
+        padding: 4rem 1rem;
+    }
+    
+    .section-title {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+        margin-bottom: 3rem;
+        line-height: 1.1;
+    }
+    
+    /* About ultra-responsive */
+    .about-grid {
+        gap: 2.5rem;
+    }
+    
+    .about-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+    
+    .about-visual {
+        height: 300px;
+        border-radius: 12px;
+    }
+    
+    .about-visual::after {
+        font-size: 4rem;
+    }
+    
+    /* Menu ultra-compact */
+    .menu-grid {
+        gap: 1.5rem;
+    }
+    
+    .menu-card {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .menu-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+        line-height: 1.2;
+    }
+    
+    .menu-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1.2rem;
+    }
+    
+    .menu-price {
+        font-size: 1.6rem;
+    }
+    
+    /* Contact ultra-compact */
+    .contact-container {
+        padding: 2rem 1.5rem;
+        margin: 0 0.5rem;
+        border-radius: 15px;
+    }
+    
+    .contact-info {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+    
+    .contact-info p {
+        margin-bottom: 1rem;
+    }
+    
+    /* Grid background ajusté */
+    .grid-bg {
+        background-size: 30px 30px;
+        opacity: 0.03;
+    }
+    
+    /* Éléments flottants réduits */
+    .floating-element {
+        width: 2px;
+        height: 2px;
+    }
+    
+    /* Mode portrait optimisé */
+    @media (orientation: portrait) and (max-height: 600px) {
+        .hero {
+            height: 90vh;
+        }
+        
+        .hero-title {
+            font-size: clamp(2rem, 10vw, 4rem);
+        }
+        
+        .hero-subtitle {
+            margin-bottom: 2rem;
+        }
+        
+        .hero-cta {
+            margin-top: 1rem;
+        }
+    }
+}
+
+/* Très petits écrans (jusqu'à 320px) */
+@media (max-width: 320px) {
+    nav {
+        padding: 0.6rem 1rem;
+    }
+    
+    .logo {
+        font-size: 1rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.65rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 15vw, 4rem);
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(0.7rem, 4vw, 1rem);
+        margin-bottom: 2rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .section-modern {
+        padding: 3rem 0.8rem;
+    }
+    
+    .section-title {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+        margin-bottom: 2.5rem;
+    }
+    
+    .menu-card,
+    .contact-container {
+        padding: 1.2rem;
+    }
+    
+    .about-visual {
+        height: 250px;
+    }
+}
+
+/* Optimisations pour les écrans tactiles */
+@media (hover: none) and (pointer: coarse) {
+    .menu-card:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    nav:hover {
+        transform: none;
+    }
+    
+    .menu-card:active {
+        transform: scale(0.98);
+    }
+    
+    .btn-primary:active,
+    .btn-secondary:active {
+        transform: scale(0.95);
+    }
+    
+    /* Espacement tactile amélioré */
+    .nav-links a {
+        padding: 0.5rem 0.8rem;
+        margin: 0.2rem;
+        border-radius: 10px;
+    }
+    
+    .hero-cta {
+        gap: 1.5rem;
+    }
+}
+
+/* Mode paysage sur mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        height: 100vh;
+        padding: 0 2rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.5rem, 8vw, 6rem);
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+        margin-bottom: 2rem;
+    }
+    
+    .hero-cta {
+        flex-direction: row;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: auto;
+        min-width: 180px;
+    }
+    
+    .section-modern {
+        padding: 5rem 2rem;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+    
+    .about-visual {
+        height: 350px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* Optimisations pour les écrans haute résolution */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .cursor,
+    .cursor-trail,
+    .floating-element {
+        will-change: transform;
+    }
+    
+    .hero-title {
+        text-rendering: optimizeLegibility;
+    }
+    
+    .section-title {
+        text-rendering: optimizeLegibility;
     }
 }
